@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../home/setUpProfile.dart';
 import 'ForgetPassword.dart';
 import 'Register.dart';
 class SignInPage extends StatefulWidget {
@@ -14,19 +16,17 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+      backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Center(child: Text("Sign in to",style:GoogleFonts.poppins(fontSize: 25,fontWeight: FontWeight.w600),),
+                Image(image: AssetImage('assets/images/couple images1.jpg'),fit: BoxFit.contain,),
+                Center(child: Text("Login",style:GoogleFonts.poppins(fontSize: 25,fontWeight: FontWeight.w600),),
                 ),
-                SizedBox(height: 30,),
-                Image(image: AssetImage("assets/images/lock.jpg"),height: 90,width: 110,),
-                SizedBox(height: 30,),
-                Text("SoulMeet",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 25),),
-                SizedBox(height: 40,),
+                SizedBox(height: 20,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -54,7 +54,7 @@ class _SignInPageState extends State<SignInPage> {
                           Navigator.push(context,
                               MaterialPageRoute(
                                   builder: (context) => ForgetPassword()));
-                        }, child:Text("Forget Password?",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 15,color: Colors.pinkAccent)
+                        }, child:Text("Forget Password?",style: GoogleFonts.poppins(fontWeight: FontWeight.w500,fontSize: 15,color: Colors.pinkAccent)
                         ),
                         ),
                       ),
@@ -66,7 +66,11 @@ class _SignInPageState extends State<SignInPage> {
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.pinkAccent.shade100
                         ),
-                        child: TextButton(onPressed: (){}, child:Text("SignIn",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 15,color: Colors.white)
+                        child: TextButton(onPressed: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProfileSetupScreen()));
+                        }, child:Text("SignIn",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 15,color: Colors.white)
                         ),
                         ),
                       ),
